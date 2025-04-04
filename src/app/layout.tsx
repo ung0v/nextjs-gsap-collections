@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
+import { ViewTransitions } from 'next-view-transitions'
 
+import Nav from './_components/Nav'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -13,8 +15,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body>
+          <Nav />
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }
